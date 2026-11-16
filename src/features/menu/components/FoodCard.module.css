@@ -1,0 +1,79 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* "Tarjeta de corte" from the design system */
+@layer features {
+  .card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--color-cream-50);
+    box-shadow:
+      var(--shadow-card),
+      0 0 0 1px color-mix(in oklab, var(--color-ink) 8%, transparent);
+  }
+
+  .media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: scale 1.2s var(--ease-soft);
+  }
+
+  .fallback {
+    opacity: 0.6;
+  }
+
+  @media (hover: hover) {
+    .card:hover .image {
+      scale: 1.04;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.375;
+    color: var(--color-ink);
+  }
+
+  .description {
+    font-size: 0.92rem;
+    line-height: 1.625;
+    color: var(--color-ink-soft);
+  }
+
+  @media (width >= 48rem) {
+    .body {
+      padding: 1.5rem;
+    }
+  }
+}

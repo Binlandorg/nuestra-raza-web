@@ -1,0 +1,46 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .group {
+    margin-inline: -1.25rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .chip {
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    padding-inline: 1.25rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    color: color-mix(in oklab, var(--color-cream) 75%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-cream) 20%, transparent);
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: var(--ease-soft);
+  }
+
+  .active {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    box-shadow: none;
+  }
+
+  @media (hover: hover) {
+    .chip:not(.active):hover {
+      color: var(--color-cream);
+      box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-cream) 45%, transparent);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .group {
+      margin-inline: 0;
+      flex-wrap: wrap;
+      padding-inline: 0;
+    }
+  }
+}

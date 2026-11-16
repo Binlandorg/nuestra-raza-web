@@ -1,0 +1,95 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .section {
+    scroll-margin-top: 4rem;
+  }
+
+  .note {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--color-cream);
+    filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.12));
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .numberRow {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-style: italic;
+    line-height: 1;
+    color: var(--color-terracotta);
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-terracotta);
+  }
+
+  .title {
+    color: var(--color-ink);
+  }
+
+  .description {
+    max-width: 28rem;
+    color: var(--color-ink-soft);
+  }
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-ink);
+  }
+
+  .check {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-olive);
+  }
+
+  /* Pillars on charcoal */
+  .dark .number,
+  .dark .icon,
+  .dark .check {
+    color: var(--color-ember);
+  }
+
+  .dark .title,
+  .dark .highlight {
+    color: var(--color-cream);
+  }
+
+  .dark .description {
+    color: var(--color-bone);
+  }
+
+  @media (width >= 48rem) {
+    .note {
+      bottom: 2.5rem;
+      left: 2.5rem;
+    }
+  }
+}

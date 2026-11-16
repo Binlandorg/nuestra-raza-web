@@ -1,0 +1,81 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer molecules {
+  .status {
+    display: flex;
+    gap: 1rem;
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+  }
+
+  .status:focus {
+    outline: none;
+  }
+
+  @media (width >= 48rem) {
+    .status {
+      padding: 1.5rem;
+    }
+  }
+
+  .success {
+    background-color: color-mix(in oklab, var(--color-olive) 10%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-olive) 30%, transparent);
+  }
+
+  .error {
+    background-color: color-mix(in oklab, var(--color-terracotta) 7%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-terracotta) 30%, transparent);
+  }
+
+  .info {
+    background-color: color-mix(in oklab, var(--color-sand) 60%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+
+  .icon {
+    margin-top: 0.125rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .success .icon {
+    color: var(--color-olive);
+  }
+
+  .error .icon {
+    color: var(--color-terracotta);
+  }
+
+  .info .icon {
+    color: var(--color-ink-soft);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.375;
+    color: var(--color-ink);
+  }
+
+  .message {
+    font-size: 0.95rem;
+    line-height: 1.625;
+    color: var(--color-ink-soft);
+  }
+
+  .actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+}

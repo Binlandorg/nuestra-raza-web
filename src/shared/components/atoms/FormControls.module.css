@@ -1,0 +1,77 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* Shared look of every text control: paper surface, hairline border, terracotta focus. */
+@layer atoms {
+  .control {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in oklab, var(--color-ink) 18%, transparent);
+    background-color: var(--color-cream-50);
+    padding-inline: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+    transition-property: border-color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-soft);
+  }
+
+  .control::placeholder {
+    color: color-mix(in oklab, var(--color-ink-muted) 80%, transparent);
+  }
+
+  @media (hover: hover) {
+    .control:hover {
+      border-color: color-mix(in oklab, var(--color-ink) 35%, transparent);
+    }
+  }
+
+  .control[aria-invalid='true'] {
+    border-color: var(--color-terracotta);
+    background-color: color-mix(in oklab, var(--color-terracotta) 3%, transparent);
+  }
+
+  .control:focus {
+    border-color: var(--color-terracotta);
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-terracotta) 20%, transparent);
+  }
+
+  .control:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .input {
+    height: 3rem;
+  }
+
+  .textarea {
+    min-height: 8rem;
+    resize: vertical;
+    padding-block: 0.75rem;
+    line-height: 1.625;
+  }
+
+  .selectWrapper {
+    position: relative;
+  }
+
+  .select {
+    height: 3rem;
+    cursor: pointer;
+    appearance: none;
+    padding-right: 2.75rem;
+  }
+
+  .chevron {
+    pointer-events: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    translate: 0 -50%;
+    color: var(--color-ink-soft);
+  }
+}

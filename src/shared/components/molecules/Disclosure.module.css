@@ -1,0 +1,72 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer molecules {
+  .details {
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+  }
+
+  .dark {
+    border-bottom-color: color-mix(in oklab, var(--color-cream) 15%, transparent);
+  }
+
+  .summary {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.25rem;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.375;
+    color: var(--color-ink);
+    transition: color 150ms var(--ease-default);
+  }
+
+  .dark .summary {
+    color: var(--color-cream);
+  }
+
+  @media (hover: hover) {
+    .summary:hover {
+      color: var(--color-terracotta);
+    }
+
+    .dark .summary:hover {
+      color: var(--color-ember);
+    }
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    color: var(--color-terracotta);
+    transition: rotate 300ms var(--ease-soft);
+  }
+
+  .dark .icon {
+    color: var(--color-ember);
+  }
+
+  .details[open] .icon {
+    rotate: 45deg;
+  }
+
+  .content {
+    max-width: 42rem;
+    padding-bottom: 1.5rem;
+    line-height: 1.625;
+    color: var(--color-ink-soft);
+  }
+
+  .dark .content {
+    color: var(--color-bone);
+  }
+
+  @media (width >= 48rem) {
+    .summary {
+      font-size: 1.25rem;
+    }
+  }
+}

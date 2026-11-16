@@ -1,0 +1,11 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer foundations {
+  /* Centered content column with the site gutters (20 / 32 / 48 px) */
+  .container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+}

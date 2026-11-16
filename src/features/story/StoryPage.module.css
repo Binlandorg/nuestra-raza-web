@@ -1,0 +1,124 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .intro {
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .introInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .cow {
+    width: 10rem;
+    color: color-mix(in oklab, var(--color-ink) 70%, transparent);
+  }
+
+  .introText {
+    max-width: 48rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2.15rem);
+    line-height: 1.35;
+    color: var(--color-ink);
+  }
+
+  .divider {
+    width: 10rem;
+  }
+
+  .chapters {
+    padding-block: 4rem;
+  }
+
+  .chaptersInner {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .identity {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .mate {
+    position: absolute;
+    top: 2.5rem;
+    right: 4%;
+    z-index: -10;
+    display: none;
+    width: 8rem;
+    color: color-mix(in oklab, var(--color-ink) 15%, transparent);
+  }
+
+  .identityInner {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .identityText {
+    color: var(--color-ink-soft);
+  }
+
+  .values {
+    margin-top: 4rem;
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .valueItem {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .value {
+    max-width: 16rem;
+    align-items: center;
+  }
+
+  @media (width >= 40rem) {
+    .values {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .intro {
+      padding-top: 7rem;
+    }
+
+    .cow {
+      width: 13rem;
+    }
+
+    .chapters {
+      padding-block: 6rem;
+    }
+
+    .chaptersInner {
+      gap: 8rem;
+    }
+
+    .identity {
+      padding-block: 7rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .mate {
+      display: block;
+    }
+  }
+}

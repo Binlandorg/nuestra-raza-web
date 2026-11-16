@@ -1,0 +1,30 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* Small atoms without their own file: Illustration, ResponsivePicture, PendingValue. */
+@layer atoms {
+  .illustration {
+    pointer-events: none;
+    display: block;
+    user-select: none;
+    background-color: currentcolor;
+  }
+
+  .picture {
+    display: block;
+  }
+
+  /* Cinematic warm grade for daylight placeholder photos (see Photo.grade) */
+  .gradeWarm {
+    filter: saturate(0.78) sepia(0.16) contrast(1.06) brightness(0.92);
+  }
+
+  .pending {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-ink-muted);
+  }
+
+  .pendingDark {
+    color: color-mix(in oklab, var(--color-bone) 80%, transparent);
+  }
+}

@@ -1,0 +1,70 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  /* Framed inset photo: "Argentina · Perú" */
+  .inset {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: none;
+    width: 34%;
+    max-width: 15rem;
+    rotate: 2deg;
+    background-color: var(--color-cream);
+    padding: 0.5rem;
+    box-shadow: 0 20px 40px -15px rgb(27 26 24 / 0.6);
+  }
+
+  .insetMedia {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .insetCaption {
+    padding: 0.5rem 0.25rem 0.25rem;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-ink-soft);
+  }
+
+  .mate {
+    position: absolute;
+    right: 2rem;
+    bottom: 2.5rem;
+    display: none;
+    width: 7rem;
+    color: color-mix(in oklab, var(--color-ink) 25%, transparent);
+  }
+
+  @media (width >= 40rem) {
+    .inset {
+      display: block;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .inset {
+      right: 2.5rem;
+      bottom: 2.5rem;
+    }
+  }
+
+  @media (width >= 80rem) {
+    .mate {
+      display: block;
+    }
+  }
+}

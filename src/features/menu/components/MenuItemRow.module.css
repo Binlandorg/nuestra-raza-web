@@ -1,0 +1,87 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .row {
+    display: flex;
+    scroll-margin-top: 10rem;
+    gap: 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .unavailable {
+    opacity: 0.55;
+  }
+
+  .thumb {
+    width: 5rem;
+    height: 5rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-sand);
+  }
+
+  .thumbImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .body {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.375;
+    color: var(--color-ink);
+  }
+
+  /* Dotted leader between name and price */
+  .leader {
+    min-width: 1.5rem;
+    flex: 1;
+    translate: 0 -0.25rem;
+    border-bottom: 1px dotted color-mix(in oklab, var(--color-ink) 25%, transparent);
+  }
+
+  .description {
+    max-width: 36rem;
+    font-size: 0.94rem;
+    line-height: 1.625;
+    color: var(--color-ink-soft);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+  }
+
+  @media (width >= 48rem) {
+    .row {
+      gap: 1.5rem;
+    }
+
+    .thumb {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    .name {
+      font-size: 1.3rem;
+    }
+  }
+}

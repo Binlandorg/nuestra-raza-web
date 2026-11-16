@@ -1,0 +1,90 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer organisms {
+  .header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 50;
+    background-image: linear-gradient(
+      to bottom in oklab,
+      color-mix(in oklab, var(--color-charcoal) 75%, transparent) 0%,
+      color-mix(in oklab, var(--color-charcoal) 25%, transparent) 50%,
+      transparent 100%
+    );
+    transition-property: background-color, box-shadow;
+    transition-duration: 500ms;
+    transition-timing-function: var(--ease-soft);
+  }
+
+  .scrolled {
+    background-image: none;
+    background-color: color-mix(in oklab, var(--color-charcoal) 95%, transparent);
+    box-shadow: 0 1px 0 rgb(245 239 230 / 0.07);
+    backdrop-filter: blur(12px);
+  }
+
+  .bar {
+    display: flex;
+    height: 4.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: height 500ms var(--ease-soft);
+  }
+
+  .scrolled .bar {
+    height: 4rem;
+  }
+
+  .logoLink {
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .reserve {
+    padding-inline: 1rem;
+  }
+
+  .menuButton {
+    margin-right: -0.5rem;
+  }
+
+  @media (width >= 40rem) {
+    .actions {
+      gap: 0.75rem;
+    }
+
+    .reserve {
+      padding-inline: 1.25rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .bar {
+      height: 6rem;
+    }
+
+    .scrolled .bar {
+      height: 4.5rem;
+    }
+
+    .desktopNav {
+      display: block;
+    }
+
+    .menuButton {
+      display: none;
+    }
+  }
+}

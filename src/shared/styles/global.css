@@ -1,0 +1,21 @@
+/* ──────────────────────────────────────────────────────────────
+   NUESTRA RAZA · Hoja global (único CSS no modular)
+   Contiene solo: fuentes, tokens, reset y estilos base de elementos.
+   Todo el estilo de componentes vive en archivos *.module.css.
+
+   Orden de cascada (cascade layers). Las capas posteriores ganan,
+   sin importar el orden de carga de los archivos:
+     reset → base → foundations → atoms → molecules → organisms
+     → templates → features → utilities
+   Así una feature puede ajustar un átomo pasando `className`
+   sin pelear por especificidad. Cada *.module.css repite esta
+   declaración en su primera línea para garantizar el orden.
+   ────────────────────────────────────────────────────────────── */
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource-variable/playfair-display/wght-italic.css';
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+@import './reset.css';
+@import './base.css';

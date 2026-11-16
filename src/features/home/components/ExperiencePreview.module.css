@@ -1,0 +1,48 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .shade {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      to top right in oklab,
+      color-mix(in oklab, var(--color-charcoal) 55%, transparent) 0%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+
+  .script {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    rotate: -3deg;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--color-cream);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    border-block: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+    padding-block: 1.5rem;
+  }
+
+  @media (width >= 48rem) {
+    .script {
+      bottom: 2.5rem;
+      left: 2.5rem;
+      font-size: 1.8rem;
+    }
+  }
+}

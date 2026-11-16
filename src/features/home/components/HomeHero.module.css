@@ -1,0 +1,147 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 92svh;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .shadeBottom,
+  .shadeLeft {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+  }
+
+  .shadeBottom {
+    background-image: linear-gradient(
+      to top in oklab,
+      var(--color-charcoal) 0%,
+      color-mix(in oklab, var(--color-charcoal) 30%, transparent) 50%,
+      color-mix(in oklab, var(--color-charcoal) 40%, transparent) 100%
+    );
+  }
+
+  .shadeLeft {
+    --shade-via: color-mix(in oklab, var(--color-charcoal) 45%, transparent);
+
+    background-image: linear-gradient(
+      to right in oklab,
+      color-mix(in oklab, var(--color-charcoal) 90%, transparent) 0%,
+      var(--shade-via) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Decorative cow + script, right side (desktop) */
+  .aside {
+    position: absolute;
+    right: 5%;
+    bottom: 7rem;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .cow {
+    width: 9rem;
+    color: color-mix(in oklab, var(--color-cream) 55%, transparent);
+  }
+
+  .script {
+    rotate: -6deg;
+    text-align: right;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.25;
+    color: color-mix(in oklab, var(--color-cream) 80%, transparent);
+  }
+
+  .inner {
+    position: relative;
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+  }
+
+  .content {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .title {
+    color: var(--color-cream);
+  }
+
+  .supporting {
+    color: color-mix(in oklab, var(--color-cream) 85%, transparent);
+  }
+
+  .cta {
+    margin-top: 0.5rem;
+  }
+
+  .scrollCue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 1.25rem;
+    display: none;
+  }
+
+  @media (width >= 48rem) {
+    .hero {
+      min-height: 100svh;
+    }
+
+    .shadeLeft {
+      --shade-via: color-mix(in oklab, var(--color-charcoal) 30%, transparent);
+    }
+
+    .inner {
+      padding-bottom: 8rem;
+    }
+
+    .content {
+      gap: 2rem;
+    }
+
+    .scrollCue {
+      display: inline-flex;
+      left: 2rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .hero {
+      max-height: 68rem;
+    }
+
+    .aside {
+      display: flex;
+    }
+
+    .scrollCue {
+      left: 3rem;
+    }
+  }
+}

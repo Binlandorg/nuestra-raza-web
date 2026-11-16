@@ -1,0 +1,71 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* Homepage section 5 — "Sabores que cuentan historias." */
+@layer features {
+  .section {
+    position: relative;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .intro {
+    position: relative;
+  }
+
+  .sprig {
+    position: absolute;
+    right: 1.5rem;
+    bottom: -6rem;
+    display: none;
+    width: 5rem;
+    rotate: 12deg;
+    color: color-mix(in oklab, var(--color-olive) 50%, transparent);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .cardLink {
+    display: block;
+    border-radius: var(--radius-md);
+  }
+
+  @media (width >= 48rem) {
+    .section {
+      padding-block: 7rem;
+    }
+
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .intro {
+      grid-column: span 4 / span 4;
+    }
+
+    .sprig {
+      display: block;
+    }
+
+    .cards {
+      grid-column: span 8 / span 8;
+    }
+  }
+}

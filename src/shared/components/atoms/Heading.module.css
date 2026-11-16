@@ -1,0 +1,24 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer atoms {
+  .light {
+    color: var(--color-ink);
+  }
+
+  .dark {
+    color: var(--color-cream);
+  }
+
+  .accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+
+  .accentLight {
+    color: var(--color-terracotta);
+  }
+
+  .accentDark {
+    color: var(--color-terracotta-bright);
+  }
+}

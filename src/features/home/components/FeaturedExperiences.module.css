@@ -1,0 +1,90 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .section {
+    scroll-margin-top: 4rem;
+    padding-block: 4rem;
+  }
+
+  .grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-ink-soft);
+  }
+
+  .lgBreak {
+    display: none;
+  }
+
+  .rule {
+    height: 1px;
+    width: 3rem;
+    background-color: color-mix(in oklab, var(--color-terracotta) 70%, transparent);
+  }
+
+  .list {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (width >= 40rem) {
+    .list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .item {
+      padding-inline: 1.5rem;
+    }
+
+    .item:not(:last-child) {
+      border-right: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+    }
+
+    .item:first-child {
+      padding-left: 0;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .section {
+      padding-block: 5rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .heading {
+      grid-column: span 3 / span 3;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .lgBreak {
+      display: block;
+    }
+
+    .list {
+      grid-column: span 9 / span 9;
+    }
+
+    .item {
+      padding-inline: 2.5rem;
+    }
+
+    .item:first-child {
+      padding-left: 0;
+    }
+  }
+}

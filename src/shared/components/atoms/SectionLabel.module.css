@@ -1,0 +1,31 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer atoms {
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-ink-soft);
+  }
+
+  .dark {
+    color: color-mix(in oklab, var(--color-cream) 90%, transparent);
+  }
+
+  .rule {
+    height: 1px;
+    width: 2.5rem;
+    flex-shrink: 0;
+    background-color: color-mix(in oklab, var(--color-terracotta) 70%, transparent);
+  }
+
+  .dark .rule {
+    background-color: color-mix(in oklab, var(--color-cream) 55%, transparent);
+  }
+
+  @media (width >= 48rem) {
+    .rule {
+      width: 3rem;
+    }
+  }
+}

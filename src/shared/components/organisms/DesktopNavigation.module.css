@@ -1,0 +1,56 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer organisms {
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media (width >= 80rem) {
+    .list {
+      gap: 2.25rem;
+    }
+  }
+
+  .link {
+    position: relative;
+    display: inline-flex;
+    padding-block: 0.5rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    color: color-mix(in oklab, var(--color-cream) 75%, transparent);
+    transition: color 300ms var(--ease-default);
+  }
+
+  /* Terracotta rule that grows under the hovered / active item */
+  .link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    transform-origin: left;
+    scale: 0 1;
+    background-color: var(--color-terracotta-bright);
+    transition: scale 300ms var(--ease-soft);
+  }
+
+  .link[data-status='active'] {
+    color: var(--color-cream);
+  }
+
+  .link[data-status='active']::after {
+    scale: 1 1;
+  }
+
+  @media (hover: hover) {
+    .link:hover {
+      color: var(--color-cream);
+    }
+
+    .link:hover::after {
+      scale: 1 1;
+    }
+  }
+}

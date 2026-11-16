@@ -1,0 +1,44 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* Large editorial date ("24 / MAY") or the weekly recurrence */
+@layer features {
+  .block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .weekday {
+    color: var(--color-ember);
+  }
+
+  .day {
+    font-family: var(--font-serif);
+    font-size: clamp(4.5rem, 3.5rem + 3vw, 6rem);
+    line-height: 0.9;
+    color: var(--color-cream);
+  }
+
+  .month {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--color-bone);
+  }
+
+  .recurring {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 3.2rem + 2.6vw, 5.5rem);
+    font-style: italic;
+    line-height: 0.95;
+    color: var(--color-cream);
+  }
+
+  .recurrence {
+    margin-top: 0.25rem;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--color-bone);
+  }
+}

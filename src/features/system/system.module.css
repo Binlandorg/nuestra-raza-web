@@ -1,0 +1,66 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* 404 and error pages */
+@layer features {
+  .section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+  }
+
+  .cow {
+    position: absolute;
+    right: -2.5rem;
+    bottom: 0;
+    z-index: -10;
+    width: 22rem;
+    color: color-mix(in oklab, var(--color-cream) 6%, transparent);
+  }
+
+  .inner {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .text {
+    max-width: 32rem;
+    color: var(--color-bone);
+  }
+
+  .actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+  }
+
+  .details {
+    overflow-x: auto;
+    border-radius: 0.25rem;
+    background-color: var(--color-charcoal-800);
+    padding: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--color-bone);
+  }
+
+  @media (width >= 48rem) {
+    .section {
+      padding-top: 12rem;
+    }
+
+    .notFound {
+      padding-bottom: 8rem;
+    }
+
+    .cow {
+      right: 8%;
+      width: 30rem;
+    }
+  }
+}

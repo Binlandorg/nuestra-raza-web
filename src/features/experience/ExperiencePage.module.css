@@ -1,0 +1,109 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .intro {
+    padding-block: 5rem;
+  }
+
+  .introGrid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 2rem;
+    border-top: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+    padding-top: 1.5rem;
+  }
+
+  .indexLink {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-ink);
+    transition: color 150ms var(--ease-default);
+  }
+
+  .indexNumber {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-terracotta);
+  }
+
+  .ritual {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .mountain {
+    position: absolute;
+    left: -5rem;
+    bottom: 0;
+    z-index: -10;
+    display: none;
+    width: 30rem;
+    color: color-mix(in oklab, var(--color-ink) 6%, transparent);
+  }
+
+  .ritualGrid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .ritualIntro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (hover: hover) {
+    .indexLink:hover {
+      color: var(--color-terracotta);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .intro {
+      padding-block: 6rem;
+    }
+
+    .ritual {
+      padding-block: 7rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .introGrid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: end;
+    }
+
+    .ritualGrid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 4rem;
+    }
+
+    .span5 {
+      grid-column: span 5 / span 5;
+    }
+
+    .span7 {
+      grid-column: span 7 / span 7;
+    }
+
+    .mountain {
+      display: block;
+    }
+
+    .ritualIntro {
+      position: sticky;
+      top: 8rem;
+    }
+  }
+}

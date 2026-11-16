@@ -1,0 +1,102 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer organisms {
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+  }
+
+  .md {
+    min-height: 64svh;
+  }
+
+  .lg {
+    min-height: 82svh;
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Charcoal veils keep the editorial headline legible over any photo */
+  .shadeBottom,
+  .shadeLeft {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+  }
+
+  .shadeBottom {
+    background-image: linear-gradient(
+      to top in oklab,
+      var(--color-charcoal) 0%,
+      color-mix(in oklab, var(--color-charcoal) 40%, transparent) 50%,
+      color-mix(in oklab, var(--color-charcoal) 35%, transparent) 100%
+    );
+  }
+
+  .shadeLeft {
+    background-image: linear-gradient(
+      to right in oklab,
+      color-mix(in oklab, var(--color-charcoal) 85%, transparent) 0%,
+      color-mix(in oklab, var(--color-charcoal) 35%, transparent) 50%,
+      transparent 100%
+    );
+  }
+
+  .inner {
+    padding-top: 9rem;
+    padding-bottom: 4rem;
+  }
+
+  .content {
+    display: flex;
+    max-width: 42rem;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .description {
+    max-width: 36rem;
+    color: var(--color-bone);
+  }
+
+  .actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+  }
+
+  @media (width >= 48rem) {
+    .md {
+      min-height: 74svh;
+    }
+
+    .lg {
+      min-height: 88svh;
+    }
+
+    .inner {
+      padding-top: 11rem;
+      padding-bottom: 6rem;
+    }
+
+    .content {
+      gap: 1.75rem;
+    }
+  }
+}

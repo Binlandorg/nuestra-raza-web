@@ -1,0 +1,46 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer atoms {
+  .cue {
+    display: inline-flex;
+    height: 2.75rem;
+    width: 1.75rem;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    border: 1px solid color-mix(in oklab, var(--color-cream) 55%, transparent);
+    padding-top: 0.625rem;
+    transition: border-color 300ms var(--ease-default);
+  }
+
+  @media (hover: hover) {
+    .cue:hover {
+      border-color: var(--color-cream);
+    }
+  }
+
+  .dot {
+    height: 0.5rem;
+    width: 1px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-cream);
+    animation: scrollCue 2.4s var(--ease-in-out-soft) 0.8s 3 both;
+  }
+}
+
+@keyframes scrollCue {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

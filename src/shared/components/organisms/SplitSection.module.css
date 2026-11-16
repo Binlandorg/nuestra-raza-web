@@ -1,0 +1,95 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer organisms {
+  .section {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    overflow: hidden;
+  }
+
+  .media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4rem 1.25rem;
+  }
+
+  .inner {
+    position: relative;
+    width: 100%;
+    max-width: 36rem;
+  }
+
+  @media (width >= 40rem) {
+    .media {
+      aspect-ratio: 16 / 10;
+    }
+
+    .content {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .content {
+      padding-block: 5rem;
+    }
+  }
+
+  /* Desktop: photo bleeds to the viewport edge, copy aligns with the site container */
+  @media (width >= 64rem) {
+    .section {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .media {
+      aspect-ratio: auto;
+      min-height: 38rem;
+    }
+
+    .content {
+      padding-block: 6rem;
+      padding-left: 4rem;
+      padding-right: max(3rem, calc((100vw - var(--container-max)) / 2 + 3rem));
+    }
+
+    .reverse .media {
+      order: 2;
+    }
+
+    .reverse .content {
+      order: 1;
+      padding-left: max(3rem, calc((100vw - var(--container-max)) / 2 + 3rem));
+      padding-right: 4rem;
+    }
+  }
+
+  @media (width >= 80rem) {
+    .content {
+      padding-left: 6rem;
+    }
+
+    .reverse .content {
+      padding-left: max(3rem, calc((100vw - var(--container-max)) / 2 + 3rem));
+      padding-right: 6rem;
+    }
+  }
+}

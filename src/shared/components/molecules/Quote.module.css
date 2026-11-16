@@ -1,0 +1,37 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer molecules {
+  .figure {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .lg {
+    font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .md {
+    font-size: 1.35rem;
+    line-height: 1.375;
+  }
+
+  .cite {
+    color: var(--color-ink-muted);
+  }
+
+  .dark .quote {
+    color: var(--color-cream);
+  }
+
+  .dark .cite {
+    color: color-mix(in oklab, var(--color-cream) 70%, transparent);
+  }
+}

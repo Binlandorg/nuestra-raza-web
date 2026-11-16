@@ -1,0 +1,40 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer atoms {
+  .edge {
+    pointer-events: none;
+    position: absolute;
+    inset-inline: 0;
+    z-index: 10;
+    display: block;
+    height: 0.875rem;
+    width: 100%;
+  }
+
+  .cream {
+    color: var(--color-cream);
+  }
+
+  .sand {
+    color: var(--color-sand);
+  }
+
+  .charcoal {
+    color: var(--color-charcoal);
+  }
+
+  .bottom {
+    bottom: -1px;
+  }
+
+  .top {
+    top: -1px;
+    rotate: 180deg;
+  }
+
+  @media (width >= 48rem) {
+    .edge {
+      height: 1.25rem;
+    }
+  }
+}

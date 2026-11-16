@@ -1,0 +1,74 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .nav {
+    position: sticky;
+    top: 4rem;
+    z-index: 30;
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+    background-color: color-mix(in oklab, var(--color-cream) 95%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  .list {
+    position: relative;
+    margin-inline: -0.75rem;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .item {
+    flex-shrink: 0;
+  }
+
+  .tab {
+    position: relative;
+    display: inline-flex;
+    height: 3.5rem;
+    align-items: center;
+    white-space: nowrap;
+    padding-inline: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-ink-soft);
+    transition: color 300ms var(--ease-default);
+  }
+
+  .tab::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0.75rem;
+    bottom: 0;
+    height: 2px;
+    transform-origin: left;
+    scale: 0 1;
+    background-color: var(--color-terracotta);
+    transition: scale 300ms var(--ease-soft);
+  }
+
+  .active {
+    color: var(--color-terracotta);
+  }
+
+  .active::after {
+    scale: 1 1;
+  }
+
+  @media (hover: hover) {
+    .tab:not(.active):hover {
+      color: var(--color-ink);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .list {
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .nav {
+      top: 4.5rem;
+    }
+  }
+}

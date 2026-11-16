@@ -1,0 +1,133 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer atoms {
+  .button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    user-select: none;
+    transition-property: background-color, color, border-color, translate;
+    transition-duration: 300ms;
+    transition-timing-function: var(--ease-soft);
+  }
+
+  .button:disabled,
+  .button[aria-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  /* Sizes: min-height (not height) so long labels can wrap on narrow phones */
+  .sm {
+    min-height: 2.5rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .md {
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .lg {
+    min-height: 3.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  @media (width >= 40rem) {
+    .lg {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Variants × surface tone */
+  .primary {
+    background-color: var(--color-terracotta);
+    color: var(--color-cream);
+  }
+
+  .primary:active {
+    translate: 0 1px;
+  }
+
+  .secondaryLight {
+    border: 1px solid var(--color-terracotta);
+    color: var(--color-terracotta);
+  }
+
+  .secondaryDark {
+    border: 1px solid color-mix(in oklab, var(--color-cream) 45%, transparent);
+    color: var(--color-cream);
+  }
+
+  .ghostLight {
+    color: var(--color-ink);
+  }
+
+  .ghostDark {
+    color: var(--color-cream);
+  }
+
+  .fullWidth {
+    width: 100%;
+  }
+
+  .arrow {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    transition: translate 300ms var(--ease-soft);
+  }
+
+  .spinner {
+    width: 1rem;
+    height: 1rem;
+    animation: spin 1s linear infinite;
+  }
+
+  @media (hover: hover) {
+    .primary:hover {
+      background-color: var(--color-terracotta-700);
+    }
+
+    .secondaryLight:hover {
+      background-color: var(--color-terracotta);
+      color: var(--color-cream);
+    }
+
+    .secondaryDark:hover {
+      border-color: var(--color-cream);
+      background-color: color-mix(in oklab, var(--color-cream) 10%, transparent);
+    }
+
+    .ghostLight:hover {
+      background-color: color-mix(in oklab, var(--color-ink) 5%, transparent);
+    }
+
+    .ghostDark:hover {
+      background-color: color-mix(in oklab, var(--color-cream) 10%, transparent);
+    }
+
+    /* Signature arrow nudge */
+    .button:hover .arrow {
+      translate: 0.25rem 0;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,100 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer molecules {
+  .card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--color-charcoal);
+  }
+
+  .portrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .landscape {
+    aspect-ratio: 4 / 3;
+  }
+
+  .tall {
+    aspect-ratio: 3 / 4;
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: scale 1.2s var(--ease-soft);
+  }
+
+  /* Photo pending: ember texture, softened */
+  .fallback {
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+
+  @media (hover: hover) {
+    .card:hover .image {
+      scale: 1.04;
+    }
+  }
+
+  .shade {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      to top in oklab,
+      color-mix(in oklab, var(--color-charcoal) 90%, transparent) 0%,
+      color-mix(in oklab, var(--color-charcoal) 25%, transparent) 50%,
+      transparent 100%
+    );
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-cream) 20%, transparent);
+  }
+
+  .caption {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.25rem;
+  }
+
+  .eyebrow {
+    color: color-mix(in oklab, var(--color-cream) 75%, transparent);
+  }
+
+  .title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: var(--color-cream);
+  }
+
+  @media (width >= 48rem) {
+    .caption {
+      padding: 1.5rem;
+    }
+
+    .title {
+      font-size: 1.35rem;
+    }
+  }
+}

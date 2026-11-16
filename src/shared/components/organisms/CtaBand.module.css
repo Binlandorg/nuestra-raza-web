@@ -1,0 +1,47 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer organisms {
+  .band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .mountain {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: -10;
+    width: 44rem;
+    max-width: 140vw;
+    translate: -50% 18%;
+    color: color-mix(in oklab, var(--color-cream) 6%, transparent);
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 48rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.75rem;
+  }
+
+  @media (width >= 48rem) {
+    .band {
+      padding-block: 7rem;
+    }
+  }
+}

@@ -1,0 +1,289 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* /asado-de-sabado — key commercial landing page */
+@layer features {
+  /* Datos clave */
+  .factsSection {
+    padding-top: 3.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .facts {
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+    padding-bottom: 3rem;
+  }
+
+  /* La experiencia + qué incluye */
+  .photoNote {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--color-cream);
+    filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.12));
+  }
+
+  .experience {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .paragraph {
+    margin-bottom: 1rem;
+  }
+
+  .paragraph:last-child {
+    margin-bottom: 0;
+  }
+
+  .includesTitle {
+    margin-bottom: 1.25rem;
+    color: var(--color-ink-soft);
+  }
+
+  .includes {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .include {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+  }
+
+  .includeIcon {
+    margin-top: 0.125rem;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-olive);
+  }
+
+  /* La jornada */
+  .journey {
+    scroll-margin-top: 5rem;
+    padding-block: 5rem;
+  }
+
+  .twoColumns {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .tight {
+    gap: 2.5rem;
+  }
+
+  .journeyIntro {
+    position: relative;
+  }
+
+  .cow {
+    margin-top: 3rem;
+    display: none;
+    width: 12rem;
+    color: color-mix(in oklab, var(--color-ink) 25%, transparent);
+  }
+
+  /* Menú especial */
+  .menuSection {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .menuGrid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .menuContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .menuHeading {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .priceRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid color-mix(in oklab, var(--color-cream) 12%, transparent);
+    padding-top: 2rem;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .priceLabel {
+    color: color-mix(in oklab, var(--color-cream) 70%, transparent);
+  }
+
+  .priceValue {
+    font-family: var(--font-serif);
+    font-size: 2.6rem;
+    line-height: 1.25;
+    color: var(--color-ember);
+  }
+
+  .pricePending {
+    margin-top: 0.25rem;
+    font-size: 1.4rem;
+  }
+
+  .small {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-bone);
+  }
+
+  .menuNote {
+    max-width: 20rem;
+  }
+
+  .menuMediaCol {
+    position: relative;
+  }
+
+  .menuMedia {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Cortes, fechas, preguntas */
+  .topSection {
+    padding-top: 5rem;
+  }
+
+  .cutsInner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .cuts {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .faqSection {
+    border-top: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+    padding-block: 5rem;
+  }
+
+  .faqList {
+    border-top: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+  }
+
+  @media (width >= 40rem) {
+    .includes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .priceRow {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .menuNote {
+      text-align: right;
+    }
+
+    .cuts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 48rem) {
+    .factsSection {
+      padding-top: 4rem;
+    }
+
+    .photoNote {
+      bottom: 2.5rem;
+      left: 2.5rem;
+      font-size: 1.6rem;
+    }
+
+    .journey,
+    .menuSection,
+    .faqSection {
+      padding-block: 7rem;
+    }
+
+    .topSection {
+      padding-top: 7rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .twoColumns,
+    .menuGrid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 4rem;
+    }
+
+    .menuGrid {
+      align-items: center;
+    }
+
+    .span4 {
+      grid-column: span 4 / span 4;
+    }
+
+    .span5 {
+      grid-column: span 5 / span 5;
+    }
+
+    .span7 {
+      grid-column: span 7 / span 7;
+    }
+
+    .span8 {
+      grid-column: span 8 / span 8;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 8rem;
+    }
+
+    .cow {
+      display: block;
+    }
+
+    .cuts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+}

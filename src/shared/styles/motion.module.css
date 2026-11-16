@@ -1,0 +1,32 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer foundations {
+  /* Hero photographs settle slowly into place on load */
+  .heroSettle {
+    animation: heroSettle 2.6s var(--ease-soft) both;
+  }
+
+  .fadeIn {
+    animation: fadeIn 0.5s var(--ease-soft) both;
+  }
+}
+
+@keyframes heroSettle {
+  from {
+    transform: scale(1.07);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

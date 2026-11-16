@@ -1,0 +1,35 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .address {
+    font-style: normal;
+  }
+
+  .small {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .muted {
+    color: var(--color-ink-muted);
+  }
+
+  .mapsLink {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  @media (hover: hover) {
+    .link:hover {
+      color: var(--color-terracotta);
+    }
+  }
+}

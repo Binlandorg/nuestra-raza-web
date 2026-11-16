@@ -1,0 +1,86 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer features {
+  .chapter {
+    display: grid;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-sand);
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .number {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-style: italic;
+    line-height: 1;
+    color: color-mix(in oklab, var(--color-terracotta) 80%, transparent);
+  }
+
+  .paragraph {
+    max-width: 28rem;
+    line-height: 1.8;
+    color: var(--color-ink-soft);
+  }
+
+  @media (width >= 48rem) {
+    .chapter {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 3rem;
+    }
+
+    .mediaCol,
+    .text {
+      grid-column: span 6 / span 6;
+    }
+
+    .reverse .mediaCol {
+      order: 2;
+    }
+
+    .reverse .text {
+      order: 1;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .chapter {
+      gap: 5rem;
+    }
+
+    .media {
+      aspect-ratio: 5 / 6;
+    }
+
+    .text {
+      grid-column: 8 / span 5;
+    }
+
+    .reverse .text {
+      grid-column: 2 / span 5;
+    }
+  }
+}

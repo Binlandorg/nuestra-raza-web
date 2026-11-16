@@ -1,0 +1,178 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+/* Homepage section 6 — strongest emphasis (dark band) */
+@layer features {
+  .section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 5rem;
+  }
+
+  .sprig {
+    position: absolute;
+    top: 3.5rem;
+    right: 5%;
+    z-index: -10;
+    display: none;
+    width: 6rem;
+    rotate: -18deg;
+    color: color-mix(in oklab, var(--color-cream) 20%, transparent);
+  }
+
+  .grid {
+    display: grid;
+    gap: 3.5rem;
+  }
+
+  .mediaCol {
+    position: relative;
+  }
+
+  .media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .shade {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      to top in oklab,
+      color-mix(in oklab, var(--color-charcoal) 55%, transparent),
+      transparent
+    );
+  }
+
+  .script {
+    position: absolute;
+    right: 0.75rem;
+    bottom: -1.75rem;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--color-cream);
+  }
+
+  .scriptAccent {
+    color: var(--color-ember);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tagline {
+    max-width: 32rem;
+    color: var(--color-bone);
+  }
+
+  .details {
+    display: grid;
+    align-items: start;
+    gap: 2.5rem;
+    border-block: 1px solid color-mix(in oklab, var(--color-cream) 12%, transparent);
+    padding-block: 2rem;
+  }
+
+  .dateCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .schedule {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-bone);
+  }
+
+  .badge {
+    width: fit-content;
+  }
+
+  .menuLabel {
+    margin-bottom: 1rem;
+    color: color-mix(in oklab, var(--color-cream) 70%, transparent);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+  }
+
+  @media (width >= 40rem) {
+    .media {
+      aspect-ratio: 16 / 10;
+    }
+
+    .details {
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+    }
+
+    .dateCol {
+      border-right: 1px solid color-mix(in oklab, var(--color-cream) 12%, transparent);
+      padding-right: 3rem;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .section {
+      padding-block: 7rem;
+    }
+
+    .script {
+      right: 1.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .sprig {
+      display: block;
+    }
+
+    .grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .mediaCol {
+      grid-column: span 5 / span 5;
+    }
+
+    .media {
+      aspect-ratio: 4 / 5;
+    }
+
+    .content {
+      grid-column: span 7 / span 7;
+    }
+  }
+}

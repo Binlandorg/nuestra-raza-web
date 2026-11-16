@@ -1,0 +1,51 @@
+@layer reset, base, foundations, atoms, molecules, organisms, templates, features, utilities;
+
+@layer molecules {
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .centered {
+    align-items: center;
+    text-align: center;
+  }
+
+  .description {
+    max-width: 36rem;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: var(--color-ink-soft);
+  }
+
+  .descriptionDark {
+    color: var(--color-bone);
+  }
+
+  .centered .description {
+    margin-inline: auto;
+  }
+
+  .actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+  }
+
+  .centered .actions {
+    justify-content: center;
+  }
+
+  @media (width >= 48rem) {
+    .root {
+      gap: 1.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+}
