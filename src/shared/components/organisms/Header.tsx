@@ -20,7 +20,7 @@ export function Header() {
     <header data-tone="dark" className={cn(styles.header, scrolled && styles.scrolled)}>
       <div className={cn(layout.container, styles.bar)}>
         <Link to="/" aria-label="Nuestra Raza — Inicio" className={styles.logoLink}>
-          <BrandLogo />
+          <BrandLogo layout="inline" />
         </Link>
 
         <DesktopNavigation className={styles.desktopNav} />

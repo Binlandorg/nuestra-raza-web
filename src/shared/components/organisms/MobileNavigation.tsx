@@ -69,7 +69,7 @@ export function MobileNavigation({ className }: { className?: string }) {
 
           <div className={cn(layout.container, styles.top)}>
             <Link to="/" aria-label="Nuestra Raza — Inicio" onClick={close}>
-              <BrandLogo />
+              <BrandLogo layout="inline" />
             </Link>
             <IconButton label="Cerrar menú" tone="dark" variant="outline" onClick={close} autoFocus>
               <X aria-hidden="true" strokeWidth={1.5} className={styles.closeIcon} />

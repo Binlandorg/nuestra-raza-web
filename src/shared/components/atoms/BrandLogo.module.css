@@ -11,6 +11,14 @@
     line-height: 0.9;
   }
 
+  /* One-line wordmark for tight bars like the header */
+  .inline {
+    flex-direction: row;
+    align-items: baseline;
+    column-gap: 0.3em;
+    white-space: nowrap;
+  }
+
   .light {
     color: var(--color-ink);
   }
