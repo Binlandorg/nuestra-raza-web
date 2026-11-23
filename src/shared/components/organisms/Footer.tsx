@@ -130,9 +130,9 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <FooterHeading>Síguenos</FooterHeading>
-            {socialLinks.length > 0 ? (
+          {socialLinks.length > 0 ? (
+            <div>
+              <FooterHeading>Síguenos</FooterHeading>
               <ul className={styles.socialList}>
                 {socialLinks.map((link) => (
                   <li key={link.platform}>
@@ -148,12 +148,8 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className={styles.small}>
-                <PendingValue tone="dark">Redes sociales muy pronto</PendingValue>
-              </p>
-            )}
-          </div>
+            </div>
+          ) : null}
         </div>
       </div>
 

@@ -13,7 +13,7 @@ import { Disclosure, Quote, SectionHeading, StepList } from '@/shared/components
 import { CtaBand, PageHero, SplitSection } from '@/shared/components/organisms'
 import { photos } from '@/shared/content/photos'
 import { cn } from '@/shared/lib/cn'
-import { formatTime } from '@/shared/lib/format'
+import { endSentence, formatTime } from '@/shared/lib/format'
 import layout from '@/shared/styles/layout.module.css'
 import surfaces from '@/shared/styles/surfaces.module.css'
 import text from '@/shared/styles/typography.module.css'
@@ -128,7 +128,10 @@ export function SaturdayAsadoPage({ event, featuredCuts }: SaturdayAsadoPageProp
                 }
                 description={
                   facts.schedule ? (
-                    <p>De {facts.schedule.replace(' – ', ' a ')}. Cada momento tiene su ritmo: nadie se apura.</p>
+                    <p>
+                      {endSentence(`De ${facts.schedule.replace(' – ', ' a ')}`)} Cada momento tiene su ritmo: nadie se
+                      apura.
+                    </p>
                   ) : (
                     <p>
                       Cada momento tiene su ritmo: nadie se apura. <PendingValue>Horario por confirmar.</PendingValue>
@@ -232,11 +235,17 @@ export function SaturdayAsadoPage({ event, featuredCuts }: SaturdayAsadoPageProp
                   Próximos <Accent>sábados.</Accent>
                 </>
               }
-              description={<p>Los cupos son limitados en cada jornada. Reserva con anticipación.</p>}
+              description={
+                event.capacity === 'unlimited' ? (
+                  <p>Todos los sábados, sin límite de cupos: elige la fecha que mejor te quede.</p>
+                ) : (
+                  <p>Los cupos son limitados en cada jornada. Reserva con anticipación.</p>
+                )
+              }
             />
           </div>
           <div className={styles.span7}>
-            <UpcomingDates dates={event.upcomingDates} />
+            <UpcomingDates event={event} />
           </div>
         </div>
       </section>

@@ -50,17 +50,15 @@ export function ContactDetails() {
           )}
         </InfoItem>
       </li>
-      <li>
-        <InfoItem icon={InstagramIcon} label="Instagram">
-          {instagram ? (
+      {instagram ? (
+        <li>
+          <InfoItem icon={InstagramIcon} label="Instagram">
             <a href={instagram.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
               {instagram.handle ?? 'Instagram'}
             </a>
-          ) : (
-            <PendingValue />
-          )}
-        </InfoItem>
-      </li>
+          </InfoItem>
+        </li>
+      ) : null}
       <li>
         <InfoItem icon={Mail} label="Correo">
           {email ? (

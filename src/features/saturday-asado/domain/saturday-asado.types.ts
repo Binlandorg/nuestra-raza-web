@@ -44,9 +44,15 @@ export interface SaturdayAsadoEvent {
   pricePerPerson: number | null
   /** "Incluye bebida de bienvenida…" shown next to the price. */
   priceNote: string | null
-  /** Seats per Saturday. `null` = por confirmar. */
-  capacity: number | null
-  /** Confirmed upcoming dates. Empty = "Próximas fechas por confirmar". */
+  /** Seats per Saturday. `'unlimited'` = no per-Saturday limit. `null` = por confirmar. */
+  capacity: number | 'unlimited' | null
+  /**
+   * `true`: every Saturday is open for requests, and `upcomingDates` only lists
+   * exceptions (a sold-out Saturday, a note such as "Con música en vivo").
+   * `false`: only the Saturdays listed in `upcomingDates` are announced.
+   */
+  openEverySaturday: boolean
+  /** Confirmed upcoming dates (or exceptions, see `openEverySaturday`). Empty = "Próximas fechas por confirmar". */
   upcomingDates: AsadoDate[]
   intro: string[]
   includes: string[]

@@ -23,7 +23,7 @@ import styles from './SaturdayAsadoTeaser.module.css'
 
 /** Homepage section 6 — the Saturday asado gets the strongest emphasis (dark band). */
 export function SaturdayAsadoTeaser({ event }: { event: SaturdayAsadoEvent }) {
-  const { next } = useUpcomingDates(event.upcomingDates)
+  const { next } = useUpcomingDates(event)
   const facts = selectEventFacts(event)
 
   return (

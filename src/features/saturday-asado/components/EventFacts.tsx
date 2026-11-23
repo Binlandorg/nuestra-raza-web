@@ -25,7 +25,7 @@ export function EventFacts({ event, tone = 'light', className }: { event: Saturd
       </li>
       <li>
         <InfoItem icon={Users} label="Cupos" tone={tone}>
-          {facts.capacity ? `Limitados · ${facts.capacity}` : <PendingValue tone={tone}>Limitados · por confirmar</PendingValue>}
+          {facts.capacity ?? <PendingValue tone={tone}>Limitados · por confirmar</PendingValue>}
         </InfoItem>
       </li>
       <li>

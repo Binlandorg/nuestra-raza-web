@@ -21,7 +21,7 @@ export const siteConfig: SiteConfig = {
       'Asado de inspiración argentina y largas sobremesas en Arequipa, Perú. Buena carne, fuego lento, vino y amigos alrededor de la mesa.',
     messages: ['Buena carne.', 'Fuego lento.', 'Largas sobremesas.'],
     values: ['Tradición', 'Encuentro', 'Amistad'],
-    // PENDIENTE: activar solo si la marca está registrada en INDECOPI.
+    // Decisión del negocio: no mostrar "®".
     showRegisteredMark: false,
   },
 
@@ -30,29 +30,30 @@ export const siteConfig: SiteConfig = {
     region: 'Arequipa',
     country: 'Perú',
     countryCode: 'PE',
-    streetAddress: null, // PENDIENTE: dirección exacta (ej. "Calle …, 123")
-    district: null, // PENDIENTE: distrito (ej. "Yanahuara")
-    reference: null, // PENDIENTE: referencia opcional
-    mapsUrl: null, // PENDIENTE: enlace de Google Maps "Cómo llegar"
-    mapEmbedUrl: null, // PENDIENTE: URL de inserción de Google Maps
-    geo: null, // PENDIENTE: { latitude: -16.39, longitude: -71.53 }
+    streetAddress: 'Nueva Juventud',
+    district: 'Santa Rita de Siguas',
+    reference: 'A espaldas del jardín inicial',
+    // El mapa apunta al distrito (Santa Rita de Siguas), no al local exacto.
+    // Para precisarlo, reemplazar por el enlace y la inserción del pin del local.
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Santa+Rita+de+Siguas%2C+Arequipa%2C+Per%C3%BA',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Santa+Rita+de+Siguas,+Arequipa,+Per%C3%BA&z=13&output=embed',
+    geo: null, // PENDIENTE: coordenadas del local, ej. { latitude: -16.39, longitude: -71.53 }
   },
 
   contact: {
-    whatsapp: null, // PENDIENTE: ej. '51XXXXXXXXX' (sin "+", sin espacios)
-    whatsappDisplay: null, // PENDIENTE: ej. '+51 9XX XXX XXX'
-    email: null, // PENDIENTE: ej. 'reservas@dominio.pe'
+    whatsapp: '51950070020',
+    whatsappDisplay: '+51 950 070 020',
+    email: 'asadodesabado@gmail.com',
   },
 
+  // Aún no hay redes sociales: mientras todas sean `null`, el sitio oculta esas secciones.
   social: {
-    instagram: null, // PENDIENTE: URL completa del perfil
+    instagram: null, // URL completa del perfil cuando exista
     facebook: null,
     tiktok: null,
   },
 
-  // PENDIENTE: horario de atención. Ejemplo:
-  // [{ label: 'Sábados', days: ['Saturday'], opens: '12:00', closes: '18:00' }]
-  hours: [],
+  hours: [{ label: 'Sábados', days: ['Saturday'], opens: '16:00', closes: '21:00' }],
 
   reservations: {
     maxPartySize: 12,

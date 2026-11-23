@@ -94,6 +94,9 @@ export function formatTimeRange(start: string, end: string | null): string {
 }
 
 /** 72 → "S/ 72" · 72.5 → "S/ 72.50" (soles peruanos). */
+/** Closes a sentence without doubling the period of "p. m.": "… 9:00 p. m." stays as is. */
+export const endSentence = (text: string): string => (text.endsWith('.') ? text : `${text}.`)
+
 export function formatPrice(amount: number): string {
   return `S/ ${Number.isInteger(amount) ? amount : amount.toFixed(2)}`
 }

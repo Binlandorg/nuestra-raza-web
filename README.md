@@ -55,7 +55,8 @@ pnpm dev                     # http://localhost:3000
 ## Variables de entorno
 
 Archivo `.env.local` (ver `.env.example`). Solo las variables `VITE_*` llegan al navegador: **nunca** pongas
-claves secretas en ellas.
+claves secretas en ellas. `.env.production` (versionado) fija `VITE_SITE_URL=https://asadodesabado.com` para el
+build de producción; una variable definida en el panel de Vercel tiene prioridad sobre ese archivo.
 
 | Variable | Obligatoria | Uso |
 | --- | --- | --- |
@@ -157,7 +158,8 @@ opcional y `homeOrder` (1–6) para destacarlo en la portada. Para cambiar un pr
 
 ### Asado de Sábado — `src/features/saturday-asado/data/saturday-asado.data.ts`
 
-Horario (`schedule`), precio por persona, cupos, **fechas confirmadas** con su disponibilidad
+Horario (`schedule`), precio por persona, cupos (`number`, `'unlimited'` o `null`), `openEverySaturday` (todos los
+sábados abiertos; `upcomingDates` pasa a registrar solo excepciones), **fechas confirmadas** con su disponibilidad
 (`'available' | 'few-spots' | 'sold-out'`), qué incluye, la jornada paso a paso, el menú especial y las preguntas
 frecuentes. Las fechas pasadas se ocultan solas; los sábados agotados no se pueden solicitar en el formulario; los
 datos estructurados de evento solo se publican para fechas confirmadas.
@@ -210,12 +212,16 @@ Mientras no haya WhatsApp configurado, los formularios muestran un estado de err
 - Imágenes AVIF/WebP con `srcset`, dimensiones explícitas (sin saltos de diseño), carga diferida y recortes verticales
   del hero para teléfonos; fuentes precargadas con métricas de respaldo medidas.
 
-## Despliegue
+## Despliegue (Vercel)
 
-`pnpm build` genera `dist/client/` con las 8 páginas en HTML estático. Publica esa carpeta en cualquier hosting
-estático (Netlify, Cloudflare Pages, Vercel, S3 + CloudFront…). `public/_headers` define caché de un año para los
-assets con hash (Netlify y Cloudflare Pages lo leen automáticamente; en otros servicios configura algo equivalente).
-Activa la compresión gzip/brotli del hosting.
+Dominio: **asadodesabado.com**. `vercel.json` configura el proyecto como sitio estático: `pnpm build` y publica
+`dist/client/` (las 8 páginas en HTML estático), con caché de un año para los assets con hash y cabeceras de
+seguridad. `"framework": null` evita que Vercel lo trate como app con servidor.
+
+1. Importa el repositorio en Vercel (no hace falta tocar la configuración de build).
+2. En *Settings → Domains* agrega `asadodesabado.com` y `www.asadodesabado.com` (redirigiendo `www` al dominio
+   principal) y apunta los DNS del dominio según indique Vercel.
+3. Cada push a `main` publica producción; las ramas generan previsualizaciones (Vercel las marca `noindex`).
 
 ## Calidad verificada
 
@@ -228,15 +234,17 @@ Activa la compresión gzip/brotli del hosting.
 
 ## Pendiente de confirmar por el negocio
 
-- [ ] Dominio definitivo (`VITE_SITE_URL`).
-- [ ] Número de WhatsApp para reservas, correo y redes sociales.
-- [ ] Dirección exacta, distrito, enlace e inserción de Google Maps y coordenadas.
-- [ ] Horario de atención.
-- [ ] Asado de Sábado: horario, precio por persona, qué incluye exactamente, cupos y fechas.
-- [ ] Precios y porciones de la carta; disponibilidad real de achuras.
+Confirmado: dominio (`asadodesabado.com`), hosting (Vercel), WhatsApp (+51 950 070 020), correo
+(asadodesabado@gmail.com), dirección (Nueva Juventud, Santa Rita de Siguas; a espaldas del jardín inicial),
+horario (sábados de 4:00 p. m. a 9:00 p. m.), Asado de Sábado todos los sábados y sin límite de cupos
+(`openEverySaturday: true`, `capacity: 'unlimited'`), sin redes sociales por ahora (sus secciones se ocultan) y sin ®.
+
+- [ ] Pin exacto del local en Google Maps (hoy el mapa y «Cómo llegar» apuntan al distrito) y sus coordenadas.
+- [ ] Asado de Sábado: precio real por persona (hoy S/ 120 referencial) y qué incluye exactamente.
+- [ ] Precios y porciones reales de la carta (hoy **referenciales**, estimados de mercado); disponibilidad real de achuras.
 - [ ] Tamaño máximo de grupo para reservas en línea (hoy 12).
-- [ ] Si la marca está registrada en INDECOPI (para mostrar ®).
-- [ ] **Fotografía propia.** Las fotos actuales son provisionales (Unsplash, ver
+- [ ] Política de privacidad (los formularios piden nombre, correo y teléfono) y, si aplica, Libro de Reclamaciones virtual.
+- [ ] **Fotografía propia** (por ahora es una prueba de concepto y las referenciales están bien). Las fotos actuales son provisionales (Unsplash, ver
   `src/assets/photos/CREDITS.md`) y el sitio muestra "Imágenes referenciales" mientras
   `content.photosAreReferential` sea `true`. No hay fotos libres de provoleta ni chicha morada: esos productos
   usan un fondo de brasas hasta tener foto.

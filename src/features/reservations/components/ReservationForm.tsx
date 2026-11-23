@@ -6,7 +6,7 @@ import { siteConfig } from '@/shared/config/site.config'
 import { useAppForm } from '@/shared/forms/app-form'
 import { focusFirstInvalid } from '@/shared/forms/focus-first-invalid'
 import { useToday } from '@/shared/hooks/useToday'
-import { addDaysIso, formatTime } from '@/shared/lib/format'
+import { addDaysIso, endSentence, formatTime } from '@/shared/lib/format'
 import { createReservationSchema, toReservationRequest } from '../domain/reservation.schema'
 import {
   RESERVATION_EXPERIENCES,
@@ -177,7 +177,7 @@ export function ReservationForm({
                     type="time"
                     hint={
                       isSaturdayAsado && eventStartTime
-                        ? `El Asado de Sábado comienza a las ${formatTime(eventStartTime)}.`
+                        ? endSentence(`El Asado de Sábado comienza a las ${formatTime(eventStartTime)}`)
                         : 'Opcional. Te confirmaremos el horario al responder.'
                     }
                   />

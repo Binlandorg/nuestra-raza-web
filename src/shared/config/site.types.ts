@@ -48,7 +48,7 @@ export interface SiteConfig {
     reference: string | null
     /** "Cómo llegar" link (Google Maps share URL). */
     mapsUrl: string | null
-    /** Google Maps embed URL (https://www.google.com/maps/embed?pb=…). */
+    /** Google Maps embed URL (https://www.google.com/maps/embed?pb=… or https://www.google.com/maps?q=…&output=embed). */
     mapEmbedUrl: string | null
     geo: { latitude: number; longitude: number } | null
   }

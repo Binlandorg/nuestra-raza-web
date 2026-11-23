@@ -1,17 +1,20 @@
 import { absoluteUrl } from '@/shared/config/env'
 import { siteConfig } from '@/shared/config/site.config'
 import { compactJsonLd } from '@/shared/lib/structured-data'
-import { selectUpcomingDates } from '../domain/saturday-asado.selectors'
+import { selectOpenSaturdays } from '../domain/saturday-asado.selectors'
 import type { SaturdayAsadoEvent } from '../domain/saturday-asado.types'
 
+/** Weeks published ahead when the asado runs every Saturday (the HTML is regenerated on each deploy). */
+const WEEKS_AHEAD = 8
+
 /**
- * schema.org FoodEvent entries — ONLY for confirmed upcoming dates.
- * With no confirmed dates nothing is published.
+ * schema.org FoodEvent entries — ONLY for confirmed Saturdays: the next weeks when
+ * the asado runs every Saturday, otherwise the dates listed. None → nothing published.
  */
 export function buildSaturdayAsadoJsonLd(event: SaturdayAsadoEvent, today: string) {
   const { startTime, endTime } = event.schedule
 
-  return selectUpcomingDates(event.upcomingDates, today).map((entry) =>
+  return selectOpenSaturdays(event, today, WEEKS_AHEAD).map((entry) =>
     compactJsonLd({
       '@context': 'https://schema.org',
       '@type': 'FoodEvent',
@@ -33,7 +36,11 @@ export function buildSaturdayAsadoJsonLd(event: SaturdayAsadoEvent, today: strin
               priceCurrency: 'PEN',
               url: absoluteUrl('/asado-de-sabado#reservar'),
               availability:
-                entry.availability === 'sold-out' ? 'https://schema.org/SoldOut' : 'https://schema.org/LimitedAvailability',
+                entry.availability === 'sold-out'
+                  ? 'https://schema.org/SoldOut'
+                  : event.capacity === 'unlimited' && entry.availability === 'available'
+                    ? 'https://schema.org/InStock'
+                    : 'https://schema.org/LimitedAvailability',
             }
           : null,
     }),

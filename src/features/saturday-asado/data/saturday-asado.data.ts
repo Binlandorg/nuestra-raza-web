@@ -2,10 +2,11 @@
  * ─────────────────────────────────────────────────────────────
  *  ASADO DE SÁBADO · Contenido y configuración del evento
  * ─────────────────────────────────────────────────────────────
- *  ⚠️ Horario, precio, cupos y fechas están PENDIENTES.
- *     Mientras sean `null` / [] el sitio muestra "Por confirmar".
+ *  Todos los sábados de 4:00 p. m. a 9:00 p. m., sin límite de cupos.
+ *  ⚠️ El precio por persona es REFERENCIAL.
  *
- *  Para publicar fechas:
+ *  Con `openEverySaturday: true` cualquier sábado se puede solicitar y
+ *  `upcomingDates` solo registra excepciones (un sábado agotado, una nota):
  *    upcomingDates: [
  *      { date: '2026-11-21', availability: 'available' },
  *      { date: '2026-11-28', availability: 'few-spots', note: 'Con música en vivo' },
@@ -16,9 +17,13 @@
  */
 import { siteConfig } from '@/shared/config/site.config'
 import { getStreetAddress } from '@/shared/lib/business'
+import { formatPrice } from '@/shared/lib/format'
 import type { SaturdayAsadoEvent } from '../domain/saturday-asado.types'
 
 const address = getStreetAddress()
+
+/** Precio REFERENCIAL por persona (estimado de mercado) hasta tener el real. */
+const PRICE_PER_PERSON = 120
 
 export const saturdayAsadoData: SaturdayAsadoEvent = {
   name: 'Asado de Sábado',
@@ -26,15 +31,16 @@ export const saturdayAsadoData: SaturdayAsadoEvent = {
   heroDescription: 'Una jornada alrededor del fuego, la buena carne y las largas sobremesas.',
   recurrenceLabel: 'Todos los sábados',
 
-  schedule: { startTime: null, endTime: null }, // PENDIENTE: ej. { startTime: '13:00', endTime: '18:00' }
-  pricePerPerson: null, // PENDIENTE: ej. 180
-  priceNote: null, // PENDIENTE: ej. 'Incluye bebida de bienvenida, menú completo y postre.'
-  capacity: null, // PENDIENTE: ej. 30
-  upcomingDates: [], // PENDIENTE: ver ejemplo arriba
+  schedule: { startTime: '16:00', endTime: '21:00' },
+  pricePerPerson: PRICE_PER_PERSON,
+  priceNote: 'Precio referencial.',
+  capacity: 'unlimited',
+  openEverySaturday: true,
+  upcomingDates: [],
 
   intro: [
     'El Asado de Sábado es nuestra forma de celebrar la semana: una jornada pensada para llegar sin apuro, recibir la primera copa, ver al parrillero en acción y sentarse a una mesa donde todo se comparte.',
-    'Inspirado en el ritual del asado argentino y servido con la calidez de la hospitalidad peruana: cortes a la parrilla, achuras, buen vino, música y una sobremesa que se estira hasta que la tarde lo pida.',
+    'Inspirado en el ritual del asado argentino y servido con la calidez de la hospitalidad peruana: cortes a la parrilla, achuras, buen vino, música y una sobremesa que se estira hasta que la noche lo pida.',
   ],
 
   includes: [
@@ -105,8 +111,7 @@ export const saturdayAsadoData: SaturdayAsadoEvent = {
     },
     {
       question: '¿Cuánto cuesta y qué incluye?',
-      answer:
-        'Al responder tu solicitud te compartimos el precio por persona y el detalle de lo que incluye la jornada de ese sábado.',
+      answer: `El precio referencial es de ${formatPrice(PRICE_PER_PERSON)} por persona e incluye bebida de bienvenida, entradas, achuras, cortes a la parrilla, acompañamientos, postre y café. Al responder tu solicitud te confirmamos el precio y el detalle de ese sábado.`,
     },
     {
       question: '¿Hay opciones para quienes no comen carne?',

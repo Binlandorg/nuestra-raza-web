@@ -27,6 +27,8 @@ dist-ssr
 .env
 .env.*
 !.env.example
+# Solo contiene la URL pública del sitio (sin secretos)
+!.env.production
 
 # TanStack / build output
 .output
